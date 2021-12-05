@@ -13,7 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"username"})
- * @UniqueEntity (fields={email})
+ * @UniqueEntity (fields={"email"})
  * @method string getUserIdentifier()
  */
 class User implements UserInterface
@@ -39,29 +39,29 @@ class User implements UserInterface
     private $username;
 
     /**
-     * @ORM\Column (type='string', length=255)
+     * @ORM\Column (type="string", length=255)
      * @Assert\Regex(
      *     pattern="/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{7,}/",
-     *     message="hasło jest niepoprawne - musi zawierac conajmniej jedna wielka i mała litere oraz liczbe",
+     *     message="hasło jest niepoprawne - musi zawierac conajmniej jedna wielka i mała litere oraz liczbe"
      * )
      */
     private $password;
 
     /**
-     * @ORM\Column (type='string', length=255)
+     * @ORM\Column (type="string", length=255)
      * @Assert\NotBlank ()
      */
     private $name;
 
     /**
-     * @ORM\Column (type='string', length=255)
+     * @ORM\Column (type="string", length=255)
      * @Assert\NotBlank ()
      */
     private $surname;
 
     /**
-     * @ORM\Column (type='string', length=255)
-     * @Assert\NotBlank ()
+     * @ORM\Column (type="string", length=255)
+     * @Assert\NotBlank()
      * @Assert\Email()
      */
 
